@@ -154,29 +154,29 @@ const DEFAULT_PROGRESS: ProgressState = {
   recentActivityIds: [],
 };
 const ACTIVITY_LIBRARY: Omit<Activity, 'completed' | 'bestScore'>[] = [
-  { id: 'memory', title: 'Memory Match', kicker: 'Working memory', subtitle: 'Hold locations in mind and pair the hidden discoveries.', domain: 'Memory', skill: 'Memory', duration: 5, level: 2, color: 'teal', icon: Brain, kind: 'memory', featured: true },
-  { id: 'sequence-recall', title: 'Sequence Recall', kicker: 'Memory training', subtitle: 'Watch a growing signal sequence, then replay it perfectly.', domain: 'Memory', skill: 'Memory', duration: 4, level: 3, color: 'ink', icon: ListChecks, kind: 'rhythm' },
-  { id: 'number', title: 'Number Quest', kicker: 'Number sense', subtitle: 'Make friends with quick numbers, place value, and operations.', domain: 'Mathematics', skill: 'Mathematics', duration: 5, level: 2, color: 'coral', icon: Hash, kind: 'quiz', featured: true },
-  { id: 'fraction-forge', title: 'Fraction Forge', kicker: 'Advanced maths', subtitle: 'Compare, combine, and reason about fractions without a calculator.', domain: 'Mathematics', skill: 'Mathematics', duration: 6, level: 3, color: 'ochre', icon: Calculator, kind: 'quiz' },
-  { id: 'mental-math', title: 'Mental Math Sprint', kicker: 'Calculation speed', subtitle: 'Build flexible strategies for calculating in your head.', domain: 'Mathematics', skill: 'Mathematics', duration: 3, level: 3, color: 'coral', icon: Timer, kind: 'quiz' },
-  { id: 'logic-lab', title: 'Logic Lab', kicker: 'Reasoning', subtitle: 'Use clues, constraints, and careful thinking to crack each problem.', domain: 'Logic', skill: 'Thinking', duration: 6, level: 3, color: 'ink', icon: BrainCircuit, kind: 'quiz', featured: true },
-  { id: 'code-breaker', title: 'Code Breaker', kicker: 'Deduction', subtitle: 'Find the hidden rule in a set of clues and unlock the code.', domain: 'Logic', skill: 'Thinking', duration: 5, level: 3, color: 'teal', icon: Puzzle, kind: 'detective' },
-  { id: 'pattern', title: 'Pattern Path', kicker: 'Sequences', subtitle: 'Spot the rule and choose what comes next on the trail.', domain: 'Patterns', skill: 'Thinking', duration: 5, level: 2, color: 'ochre', icon: RouteIcon, kind: 'pattern', featured: true },
-  { id: 'matrix-mapper', title: 'Matrix Mapper', kicker: 'Visual logic', subtitle: 'Read rows and columns to complete a changing visual grid.', domain: 'Patterns', skill: 'Thinking', duration: 6, level: 4, color: 'ink', icon: Grid3X3, kind: 'pattern' },
-  { id: 'focus', title: 'Focus Safari', kicker: 'Selective attention', subtitle: 'Find the one signal in the noise and let your eyes settle.', domain: 'Focus', skill: 'Focus', duration: 4, level: 2, color: 'ink', icon: Focus, kind: 'focus', featured: true },
-  { id: 'reaction', title: 'Reaction Relay', kicker: 'Reflexes', subtitle: 'Wait for the exact moment, then respond with calm precision.', domain: 'Reaction', skill: 'Focus', duration: 3, level: 3, color: 'coral', icon: Zap, kind: 'reaction' },
-  { id: 'doodle', title: 'Doodle Studio', kicker: 'Creative thinking', subtitle: 'Turn a playful prompt into a drawing using your own ideas.', domain: 'Creativity', skill: 'Creativity', duration: 8, level: 1, color: 'ochre', icon: Palette, kind: 'creative' },
-  { id: 'story-builder', title: 'Story Builder', kicker: 'Imagination', subtitle: 'Make meaningful choices and shape a tiny adventure of your own.', domain: 'Creativity', skill: 'Creativity', duration: 6, level: 2, color: 'coral', icon: WandSparkles, kind: 'story' },
-  { id: 'word-detective', title: 'Word Detective', kicker: 'Vocabulary', subtitle: 'Use context clues to discover meaning, nuance, and word families.', domain: 'Language', skill: 'Language', duration: 5, level: 2, color: 'teal', icon: Languages, kind: 'quiz' },
-  { id: 'reading-room', title: 'Reading Room', kicker: 'Comprehension', subtitle: 'Read a short passage, infer meaning, and connect the details.', domain: 'Reading', skill: 'Language', duration: 7, level: 3, color: 'ink', icon: BookOpen, kind: 'reading' },
-  { id: 'mission-builder', title: 'Mission Builder', kicker: 'Problem solving', subtitle: 'Balance choices, resources, and consequences to complete a mission.', domain: 'Problem solving', skill: 'Thinking', duration: 7, level: 3, color: 'teal', icon: Construction, kind: 'build' },
-  { id: 'spatial-navigator', title: 'Spatial Navigator', kicker: 'Mental rotation', subtitle: 'Rotate, map, and reason about direction from a new point of view.', domain: 'Spatial', skill: 'Thinking', duration: 5, level: 3, color: 'coral', icon: Map, kind: 'spatial' },
-  { id: 'eco-scientist', title: 'Eco Scientist', kicker: 'Science lab', subtitle: 'Test ideas about habitats, forces, materials, and living systems.', domain: 'Science', skill: 'Thinking', duration: 6, level: 2, color: 'teal', icon: FlaskConical, kind: 'quiz' },
-  { id: 'blueprint-builder', title: 'Blueprint Builder', kicker: 'Design thinking', subtitle: 'Choose structures that make a bridge stable, light, and useful.', domain: 'Building', skill: 'Creativity', duration: 7, level: 3, color: 'ochre', icon: Blocks, kind: 'build' },
-  { id: 'rhythm-rally', title: 'Rhythm Rally', kicker: 'Music and timing', subtitle: 'Listen with your eyes and tap back a growing rhythmic phrase.', domain: 'Music', skill: 'Focus', duration: 4, level: 2, color: 'coral', icon: Music2, kind: 'rhythm' },
-  { id: 'case-file', title: 'Case File', kicker: 'Mystery room', subtitle: 'Compare evidence, notice contradictions, and solve the final clue.', domain: 'Detective', skill: 'Thinking', duration: 7, level: 4, color: 'ink', icon: ShieldQuestion, kind: 'detective' },
-  { id: 'asteroid-arithmetic', title: 'Asteroid Arithmetic', kicker: 'Arcade maths', subtitle: 'Clear the right targets by spotting multiples and prime numbers.', domain: 'Arcade', skill: 'Mathematics', duration: 4, level: 2, color: 'ink', icon: Gamepad2, kind: 'arcade' },
-  { id: 'brain-blitz', title: 'Brain Blitz', kicker: 'Daily challenge', subtitle: 'A mixed, timed set that keeps every part of your brain moving.', domain: 'Challenges', skill: 'Thinking', duration: 6, level: 4, color: 'coral', icon: Trophy, kind: 'quiz', featured: true },
+  { id: 'memory', title: 'Memory Match', kicker: 'Memory', subtitle: 'Find two pictures that match.', domain: 'Memory', skill: 'Memory', duration: 3, level: 1, color: 'teal', icon: Brain, kind: 'memory', featured: true },
+  { id: 'sequence-recall', title: 'Copy the Pattern', kicker: 'Memory', subtitle: 'Watch the lights, then tap them in the same order.', domain: 'Memory', skill: 'Memory', duration: 2, level: 1, color: 'ink', icon: ListChecks, kind: 'rhythm' },
+  { id: 'number', title: 'Number Fun', kicker: 'Numbers', subtitle: 'Count, add, and choose the right number.', domain: 'Mathematics', skill: 'Mathematics', duration: 3, level: 1, color: 'coral', icon: Hash, kind: 'quiz', featured: true },
+  { id: 'fraction-forge', title: 'Share the Cake', kicker: 'Parts and whole', subtitle: 'Learn about halves and quarters with easy examples.', domain: 'Mathematics', skill: 'Mathematics', duration: 3, level: 1, color: 'ochre', icon: Calculator, kind: 'quiz' },
+  { id: 'mental-math', title: 'Quick Numbers', kicker: 'Easy maths', subtitle: 'Try small sums in your head.', domain: 'Mathematics', skill: 'Mathematics', duration: 2, level: 1, color: 'coral', icon: Timer, kind: 'quiz' },
+  { id: 'logic-lab', title: 'Logic Friends', kicker: 'Thinking', subtitle: 'Use simple clues to find the answer.', domain: 'Logic', skill: 'Thinking', duration: 3, level: 1, color: 'ink', icon: BrainCircuit, kind: 'quiz', featured: true },
+  { id: 'code-breaker', title: 'Secret Shape', kicker: 'Thinking', subtitle: 'Find the shape that belongs in the empty spot.', domain: 'Logic', skill: 'Thinking', duration: 2, level: 1, color: 'teal', icon: Puzzle, kind: 'detective' },
+  { id: 'pattern', title: 'Pattern Train', kicker: 'Patterns', subtitle: 'Look at the pattern and pick what comes next.', domain: 'Patterns', skill: 'Thinking', duration: 3, level: 1, color: 'ochre', icon: RouteIcon, kind: 'pattern', featured: true },
+  { id: 'matrix-mapper', title: 'Shape Grid', kicker: 'Shapes', subtitle: 'Find the missing shape in a simple grid.', domain: 'Patterns', skill: 'Thinking', duration: 3, level: 1, color: 'ink', icon: Grid3X3, kind: 'pattern' },
+  { id: 'focus', title: 'Spot the Different One', kicker: 'Focus', subtitle: 'Find the one picture that is different.', domain: 'Focus', skill: 'Focus', duration: 2, level: 1, color: 'ink', icon: Focus, kind: 'focus', featured: true },
+  { id: 'reaction', title: 'Wait & Tap', kicker: 'Focus', subtitle: 'Wait for the signal, then tap.', domain: 'Reaction', skill: 'Focus', duration: 2, level: 1, color: 'coral', icon: Zap, kind: 'reaction' },
+  { id: 'doodle', title: 'Draw & Create', kicker: 'Creativity', subtitle: 'Draw something fun from a simple idea.', domain: 'Creativity', skill: 'Creativity', duration: 4, level: 1, color: 'ochre', icon: Palette, kind: 'creative' },
+  { id: 'story-builder', title: 'Story Choices', kicker: 'Imagination', subtitle: 'Choose what happens next in a tiny story.', domain: 'Creativity', skill: 'Creativity', duration: 3, level: 1, color: 'coral', icon: WandSparkles, kind: 'story' },
+  { id: 'word-detective', title: 'Word Match', kicker: 'Words', subtitle: 'Match easy words with their meaning.', domain: 'Language', skill: 'Language', duration: 3, level: 1, color: 'teal', icon: Languages, kind: 'quiz' },
+  { id: 'reading-room', title: 'Little Reader', kicker: 'Reading', subtitle: 'Read a short story and answer easy questions.', domain: 'Reading', skill: 'Language', duration: 3, level: 1, color: 'ink', icon: BookOpen, kind: 'reading' },
+  { id: 'mission-builder', title: 'Help the Robot', kicker: 'Problem solving', subtitle: 'Choose the best simple way to help the robot.', domain: 'Problem solving', skill: 'Thinking', duration: 3, level: 1, color: 'teal', icon: Construction, kind: 'build' },
+  { id: 'spatial-navigator', title: 'Direction Fun', kicker: 'Directions', subtitle: 'Follow simple left, right, up, and down clues.', domain: 'Spatial', skill: 'Thinking', duration: 2, level: 1, color: 'coral', icon: Map, kind: 'spatial' },
+  { id: 'eco-scientist', title: 'Nature Fun', kicker: 'Science', subtitle: 'Learn simple facts about plants, animals, and nature.', domain: 'Science', skill: 'Thinking', duration: 3, level: 1, color: 'teal', icon: FlaskConical, kind: 'quiz' },
+  { id: 'blueprint-builder', title: 'Build a Bridge', kicker: 'Building', subtitle: 'Pick simple choices that help a bridge stay strong.', domain: 'Building', skill: 'Creativity', duration: 3, level: 1, color: 'ochre', icon: Blocks, kind: 'build' },
+  { id: 'rhythm-rally', title: 'Copy the Beat', kicker: 'Music', subtitle: 'Watch a short beat and copy it.', domain: 'Music', skill: 'Focus', duration: 2, level: 1, color: 'coral', icon: Music2, kind: 'rhythm' },
+  { id: 'case-file', title: 'Find the Clue', kicker: 'Observation', subtitle: 'Look at three simple clues and choose what they tell you.', domain: 'Detective', skill: 'Thinking', duration: 3, level: 1, color: 'ink', icon: ShieldQuestion, kind: 'detective' },
+  { id: 'asteroid-arithmetic', title: 'Number Hunt', kicker: 'Numbers', subtitle: 'Find the target numbers hiding in the space board.', domain: 'Arcade', skill: 'Mathematics', duration: 2, level: 1, color: 'ink', icon: Gamepad2, kind: 'arcade' },
+  { id: 'brain-blitz', title: 'Brain Party', kicker: 'Mixed fun', subtitle: 'A few easy questions about numbers, words, shapes, and nature.', domain: 'Challenges', skill: 'Thinking', duration: 3, level: 1, color: 'coral', icon: Trophy, kind: 'quiz', featured: true },
 ];
 
 function readStorage<T>(key: string, fallback: T): T {
@@ -321,10 +321,10 @@ function HomePage({ activities, progress }: { activities: Activity[]; progress: 
         <div className="hero-copy">
           <span className="eyebrow">A bigger playground for curious minds</span>
           <h1 className="display-title">Think boldly.<br /><em>Grow brightly.</em></h1>
-          <p className="subtle">A professional learning studio for ages 6+. Choose a short mission, practise a real skill, and build your own trail of “I can do it” moments.</p>
-          <div className="hero-actions"><Link href={`/play/${nextActivity.id}`} className="button-primary" data-testid="link-start-adventure">{completedCount === activities.length ? 'Take another lap' : 'Start a learning mission'} <ArrowRight size={18} /></Link><span className="hero-note"><CheckCircle2 size={15} /> No pressure. No ads. Progress stays local.</span></div>
+          <p className="subtle">A playful learning studio made for ages 6–7. Choose a short mission, practise a real skill, and build your own trail of “I can do it” moments.</p>
+          <div className="hero-actions"><Link href={`/play/${nextActivity.id}`} className="button-primary" data-testid="link-start-adventure">{completedCount === activities.length ? 'Take another lap' : 'Start an activity'} <ArrowRight size={18} /></Link><span className="hero-note"><CheckCircle2 size={15} /> No pressure. No ads. Progress stays local.</span></div>
           <div className="hero-stat-row">
-            <div className="hero-stat"><strong>{activities.length}</strong><span>missions</span></div>
+            <div className="hero-stat"><strong>{activities.length}</strong><span>activities</span></div>
             <div className="hero-stat"><strong>{completedCount}</strong><span>explored</span></div>
             <div className="hero-stat"><strong>{progress.totalStars}</strong><span>stars earned</span></div>
           </div>
@@ -333,30 +333,30 @@ function HomePage({ activities, progress }: { activities: Activity[]; progress: 
           <div className="constellation constellation-one"><span /><span /><span /></div>
           <div className="constellation constellation-two"><span /><span /><span /><span /></div>
           <div className="hero-orbit"><BrainCircuit size={45} /><span>YOUR<br />CURIOSITY<br />IS A SKILL</span></div>
-          <div className="trail-bubble"><strong>Today’s nudge</strong>Pick something that feels one step beyond easy. That is where new connections grow.</div>
+          <div className="trail-bubble"><strong>Today’s nudge</strong>Pick something fun and give it a try. Small steps help you learn.</div>
         </div>
       </section>
 
       <section className="featured-section" aria-labelledby="featured-heading">
-        <div className="section-heading"><div><span className="eyebrow">Curated for today</span><h2 id="featured-heading">Featured missions</h2></div><span className="section-note"><Trophy size={14} /> Build your own path</span></div>
+        <div className="section-heading"><div><span className="eyebrow">Curated for today</span><h2 id="featured-heading">Featured activities</h2></div><span className="section-note"><Trophy size={14} /> Build your own path</span></div>
         <div className="featured-row">{featured.map((activity) => <FeaturedCard key={activity.id} activity={activity} />)}</div>
       </section>
 
       <section id="catalogue" className="catalogue-section" aria-labelledby="catalogue-heading">
-        <div className="section-heading catalogue-head"><div><span className="eyebrow">The activity library</span><h2 id="catalogue-heading">Find your next stretch</h2><p className="subtle">Maths, language, making, mystery, movement, and everything in between.</p></div><div className="catalogue-count">{filtered.length} of {activities.length}<span>missions shown</span></div></div>
+        <div className="section-heading catalogue-head"><div><span className="eyebrow">The activity library</span><h2 id="catalogue-heading">Pick a fun activity</h2><p className="subtle">Maths, language, making, mystery, movement, and everything in between.</p></div><div className="catalogue-count">{filtered.length} of {activities.length}<span>activities shown</span></div></div>
          <div className="catalogue-tools">
            <div className="filter-chips" aria-label="Filter by learning domain">{DOMAINS.map((item) => <button key={item} className={`filter-chip ${domain === item ? 'active' : ''}`} aria-pressed={domain === item} onClick={() => setDomain(item)}>{item}</button>)}</div>
-           <label className="search-field"><Search size={16} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search missions" aria-label="Search missions" /></label>
+           <label className="search-field"><Search size={16} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search activities" aria-label="Search activities" /></label>
         </div>
          <div className="activity-grid">{filtered.map((activity) => <ActivityCard key={activity.id} activity={activity} />)}</div>
-         {filtered.length === 0 && <div className="empty-state"><Search size={25} /><strong>No mission matches that search.</strong><span>Try a different word or choose all domains.</span><button className="button-secondary button-small" onClick={() => { setQuery(''); setDomain('All'); }}>Clear search and filters</button></div>}
+         {filtered.length === 0 && <div className="empty-state"><Search size={25} /><strong>No activity matches that search.</strong><span>Try a different word or choose all domains.</span><button className="button-secondary button-small" onClick={() => { setQuery(''); setDomain('All'); }}>Clear search</button></div>}
       </section>
 
-      <div className="challenge-banner"><div className="challenge-icon"><Timer size={25} /></div><div><span className="eyebrow">Daily challenge</span><h3>Can you beat your own Brain Blitz score?</h3><p>Six mixed questions. One focused run. A new best score is always worth celebrating.</p></div><Link href="/play/brain-blitz" className="button-secondary button-small">Enter challenge <ArrowRight size={15} /></Link></div>
+      <div className="challenge-banner"><div className="challenge-icon"><Timer size={25} /></div><div><span className="eyebrow">Daily challenge</span><h3>Ready for a little brain fun?</h3><p>A few easy questions about things you already know.</p></div><Link href="/play/brain-blitz" className="button-secondary button-small">Play Brain Party <ArrowRight size={15} /></Link></div>
 
       <div className="dashboard-row">
         <section className="panel" aria-labelledby="week-heading"><div className="panel-head"><div><span className="eyebrow">Your rhythm</span><h3 id="week-heading">Small sessions add up</h3></div><Clock3 size={21} color="hsl(161 43% 33%)" /></div><div className="stat-big" data-testid="text-weekly-minutes">{progress.weeklyMinutes}<span className="unit-label"> min</span></div><p className="stat-caption">of your 20 minute trail goal</p><div className="progress-track" style={{ marginTop: 16 }}><div className="progress-fill" style={{ width: `${Math.min(100, progress.weeklyMinutes / 20 * 100)}%` }} /></div><div className="streak-strip"><Star size={22} fill="currentColor" /><div><strong>{progress.streak || 0} discovery sessions in a row</strong><span>Every small step counts.</span></div></div></section>
-        <section className="panel" aria-labelledby="trail-heading"><div className="panel-head"><div><span className="eyebrow">Recent activity</span><h3 id="trail-heading">Your learning trail</h3></div><RouteIcon size={21} color="hsl(9 77% 67%)" /></div>{progress.recentActivityIds.length > 0 ? <div className="recent-list">{progress.recentActivityIds.slice(0, 3).map((id) => { const activity = activities.find((item) => item.id === id); return activity ? <div className="recent-item" key={id}><span className={`recent-dot ${activity.color}`}><activity.icon size={15} /></span><div><strong>{activity.title}</strong><span>{activity.domain} · score {activity.bestScore}</span></div><Check size={16} color="hsl(161 43% 33%)" /></div> : null; })}</div> : <div className="empty-mini"><Sprout size={20} /><span>Complete a mission and it will appear here.</span></div>}</section>
+        <section className="panel" aria-labelledby="trail-heading"><div className="panel-head"><div><span className="eyebrow">Recent activity</span><h3 id="trail-heading">Your learning trail</h3></div><RouteIcon size={21} color="hsl(9 77% 67%)" /></div>{progress.recentActivityIds.length > 0 ? <div className="recent-list">{progress.recentActivityIds.slice(0, 3).map((id) => { const activity = activities.find((item) => item.id === id); return activity ? <div className="recent-item" key={id}><span className={`recent-dot ${activity.color}`}><activity.icon size={15} /></span><div><strong>{activity.title}</strong><span>{activity.domain} · score {activity.bestScore}</span></div><Check size={16} color="hsl(161 43% 33%)" /></div> : null; })}</div> : <div className="empty-mini"><Sprout size={20} /><span>Finish an activity and it will appear here.</span></div>}</section>
       </div>
     </div>
   );
@@ -364,7 +364,7 @@ function HomePage({ activities, progress }: { activities: Activity[]; progress: 
 
 function FeaturedCard({ activity }: { activity: Activity }) {
   const Icon = activity.icon;
-  return <Link href={`/play/${activity.id}`} className={`featured-card ${activity.color}`}><div className="featured-top"><span className="activity-icon"><Icon size={22} /></span><span className="featured-arrow"><ArrowRight size={17} /></span></div><span className="eyebrow">{activity.kicker}</span><h3>{activity.title}</h3><p>{activity.subtitle}</p><div className="featured-bottom"><span>{activity.duration} min</span><span>{activity.level === 4 ? 'Expert stretch' : activity.level === 3 ? 'Level up' : 'Warm-up'}</span></div></Link>;
+  return <Link href={`/play/${activity.id}`} className={`featured-card ${activity.color}`}><div className="featured-top"><span className="activity-icon"><Icon size={22} /></span><span className="featured-arrow"><ArrowRight size={17} /></span></div><span className="eyebrow">{activity.kicker}</span><h3>{activity.title}</h3><p>{activity.subtitle}</p><div className="featured-bottom"><span>{activity.duration} min</span><span>{activity.level === 2 ? 'A little harder' : 'Easy start'}</span></div></Link>;
 }
 
 function ActivityCard({ activity }: { activity: Activity }) {
@@ -379,7 +379,7 @@ function ProgressPage({ activities, progress }: { activities: Activity[]; progre
 }
 
 function AboutPage({ soundEnabled, onToggleSound, onReset }: { soundEnabled: boolean; onToggleSound: () => void; onReset: () => void }) {
-  return <div className="content"><div className="page-heading"><span className="eyebrow">Field guide</span><h1>For curious minds.</h1><p className="subtle">BrightSprout is a learning studio for children aged six and up. It brings together the habits beneath confident learning: noticing, explaining, imagining, and trying again.</p></div><div className="about-grid"><section className="about-card"><span className="eyebrow" style={{ color: 'hsl(39 91% 62%)' }}>A wider playground</span><h2>Less worksheet.<br />More wonder.</h2><p>Across the academy, children can practise mathematics, language, reading, memory, attention, science, design, music, reasoning, and creative expression in short sessions.</p></section><section className="about-card about-note"><span className="eyebrow" style={{ color: 'hsl(161 43% 33%)' }}>A note for grown-ups</span><h2>Small steps are real steps.</h2><p>No accounts, no ads, no leaderboard. Progress stays in this browser so a child can explore at their own pace, with challenge that feels encouraging rather than stressful.</p></section></div><div className="principles"><section className="principle"><span className="principle-icon"><Compass size={19} /></span><div><h3>Build a broad brain</h3><p>Different missions exercise different kinds of thinking, so “being good at learning” never means just one thing.</p></div></section><section className="principle"><span className="principle-icon"><Eye size={19} /></span><div><h3>Feedback that feels useful</h3><p>Correct answers are celebrated, while misses point to a new route through the same idea.</p></div></section><section className="principle"><span className="principle-icon"><Volume2 size={19} /></span><div><h3>Made for quiet corners</h3><p>Sound is optional, touch targets are generous, and every discovery works offline on this device.</p></div></section></div><section className="panel settings-panel"><div className="panel-head"><div><span className="eyebrow">Settings</span><h3>Make the academy yours</h3></div><Info size={20} /></div><div className="setting-row"><div><strong>Sound feedback</strong><p className="stat-caption">{soundEnabled ? 'On for little moments of feedback.' : 'Off for a quieter trail.'}</p></div><button className="button-secondary button-small" onClick={onToggleSound} data-testid="button-about-sound">{soundEnabled ? <Volume2 size={16} /> : <VolumeX size={16} />}{soundEnabled ? 'Turn off' : 'Turn on'}</button></div><div className="setting-row"><div><strong>Start fresh</strong><p className="stat-caption">Clear local learning notes on this device.</p></div><button className="button-secondary button-small" onClick={onReset} data-testid="button-reset-progress"><RotateCcw size={15} /> Reset progress</button></div></section><p className="about-credit">BrightSprout is an original learning experience built from open-source product research. No repository code, artwork, sound, or copy is bundled into the app.</p></div>;
+  return <div className="content"><div className="page-heading"><span className="eyebrow">Field guide</span><h1>For curious minds.</h1><p className="subtle">BrightSprout is a learning studio for children aged 6–7. It brings together the habits beneath confident learning: noticing, explaining, imagining, and trying again.</p></div><div className="about-grid"><section className="about-card"><span className="eyebrow" style={{ color: 'hsl(39 91% 62%)' }}>A wider playground</span><h2>Less worksheet.<br />More wonder.</h2><p>Across the academy, children can practise mathematics, language, reading, memory, attention, science, design, music, reasoning, and creative expression in short sessions.</p></section><section className="about-card about-note"><span className="eyebrow" style={{ color: 'hsl(161 43% 33%)' }}>A note for grown-ups</span><h2>Small steps are real steps.</h2><p>No accounts, no ads, no leaderboard. Progress stays in this browser so a child can explore at their own pace, with challenge that feels encouraging rather than stressful.</p></section></div><div className="principles"><section className="principle"><span className="principle-icon"><Compass size={19} /></span><div><h3>Build a broad brain</h3><p>Different missions exercise different kinds of thinking, so “being good at learning” never means just one thing.</p></div></section><section className="principle"><span className="principle-icon"><Eye size={19} /></span><div><h3>Feedback that feels useful</h3><p>Correct answers are celebrated, while misses point to a new route through the same idea.</p></div></section><section className="principle"><span className="principle-icon"><Volume2 size={19} /></span><div><h3>Made for quiet corners</h3><p>Sound is optional, touch targets are generous, and every discovery works offline on this device.</p></div></section></div><section className="panel settings-panel"><div className="panel-head"><div><span className="eyebrow">Settings</span><h3>Make the academy yours</h3></div><Info size={20} /></div><div className="setting-row"><div><strong>Sound feedback</strong><p className="stat-caption">{soundEnabled ? 'On for little moments of feedback.' : 'Off for a quieter trail.'}</p></div><button className="button-secondary button-small" onClick={onToggleSound} data-testid="button-about-sound">{soundEnabled ? <Volume2 size={16} /> : <VolumeX size={16} />}{soundEnabled ? 'Turn off' : 'Turn on'}</button></div><div className="setting-row"><div><strong>Start fresh</strong><p className="stat-caption">Clear local learning notes on this device.</p></div><button className="button-secondary button-small" onClick={onReset} data-testid="button-reset-progress"><RotateCcw size={15} /> Reset progress</button></div></section><p className="about-credit">BrightSprout is an original learning experience built from open-source product research. No repository code, artwork, sound, or copy is bundled into the app.</p></div>;
 }
 
 function PlayPage({ activities, onComplete }: { activities: Activity[]; onComplete: (id: ActivityId, score: number) => void }) {
@@ -415,7 +415,7 @@ function GameView({ activity, onComplete }: { activity: Activity; onComplete: (s
 }
 
 type MemoryCardData = { key: string; pair: string; icon: LucideIcon; flipped: boolean; matched: boolean };
-const memoryPairs: [string, LucideIcon][] = [['circle', Circle], ['triangle', Triangle], ['square', Square], ['diamond', Diamond], ['target', Target], ['sprout', Sprout], ['star', Star], ['compass', Compass]];
+const memoryPairs: [string, LucideIcon][] = [['circle', Circle], ['triangle', Triangle], ['square', Square], ['star', Star]];
 function MemoryGame({ activity, onComplete }: { activity: Activity; onComplete: (score: number) => void }) {
   const [cards, setCards] = useState<MemoryCardData[]>(() => [...memoryPairs, ...memoryPairs].map(([pair, icon], index) => ({ key: `${pair}-${index}`, pair, icon, flipped: false, matched: false })).sort(() => Math.random() - .5));
   const [first, setFirst] = useState<number | null>(null);
@@ -441,61 +441,47 @@ function MemoryGame({ activity, onComplete }: { activity: Activity; onComplete: 
       window.setTimeout(() => { setCards((current) => current.map((card, cardIndex) => cardIndex === first || cardIndex === index ? { ...card, flipped: false } : card)); setLocked(false); }, 740);
     }
   };
-  return <><GameIntro activity={activity}><div className="game-rule"><Brain size={15} /> Keep the locations in mind, not just the symbols.</div></GameIntro><div className={`feedback ${feedback.startsWith('Not') ? 'wrong' : ''}`} aria-live="polite">{feedback}</div><div className="memory-grid">{cards.map((card, index) => { const Icon = card.icon; return <button className={`memory-card ${card.flipped || card.matched ? 'flipped' : ''} ${card.matched ? 'matched' : ''}`} key={card.key} onClick={() => pickCard(index)} disabled={locked || card.matched} aria-label={card.flipped || card.matched ? `Card showing ${card.pair}` : 'Hidden memory card'} data-testid={`button-memory-card-${index}`}>{card.flipped || card.matched ? <Icon size={25} /> : <Sprout size={20} />}</button>; })}</div><div className="game-footer-note"><span>Challenge: use as few turns as possible.</span><span>Turns {turns}</span></div></>;
+  return <><GameIntro activity={activity}><div className="game-rule"><Brain size={15} /> Find the two cards that match.</div></GameIntro><div className={`feedback ${feedback.startsWith('Not') ? 'wrong' : ''}`} aria-live="polite">{feedback}</div><div className="memory-grid">{cards.map((card, index) => { const Icon = card.icon; return <button className={`memory-card ${card.flipped || card.matched ? 'flipped' : ''} ${card.matched ? 'matched' : ''}`} key={card.key} onClick={() => pickCard(index)} disabled={locked || card.matched} aria-label={card.flipped || card.matched ? `Card showing ${card.pair}` : 'Hidden memory card'} data-testid={`button-memory-card-${index}`}>{card.flipped || card.matched ? <Icon size={25} /> : <Sprout size={20} />}</button>; })}</div><div className="game-footer-note"><span>Challenge: use as few turns as possible.</span><span>Turns {turns}</span></div></>;
 }
 
 type QuizQuestion = { prompt: string; answer: string; choices: string[]; explanation: string };
 const quizBank: Record<string, QuizQuestion[]> = {
   number: [
-    { prompt: 'What is 17 + 28?', answer: '45', choices: ['35', '45', '55', '65'], explanation: '17 + 20 is 37, then 8 more makes 45.' },
-    { prompt: 'Which number is a multiple of 6?', answer: '42', choices: ['32', '36', '42', '49'], explanation: '6 × 7 = 42.' },
-    { prompt: 'What is 3 × 9 − 4?', answer: '23', choices: ['19', '21', '23', '27'], explanation: 'Multiply first: 27 − 4 = 23.' },
-    { prompt: 'Which is closest to one half?', answer: '48%', choices: ['18%', '38%', '48%', '88%'], explanation: 'One half is 50%, so 48% is closest.' },
-    { prompt: 'What is 120 ÷ 10?', answer: '12', choices: ['10', '11', '12', '20'], explanation: 'Dividing by 10 moves each digit one place.' },
-    { prompt: 'A shape has 5 sides. What is it?', answer: 'Pentagon', choices: ['Triangle', 'Square', 'Pentagon', 'Hexagon'], explanation: 'Penta means five.' },
+    { prompt: 'What number comes after 7?', answer: '8', choices: ['6', '8', '9', '10'], explanation: '8 comes after 7.' },
+    { prompt: 'What is 3 + 4?', answer: '7', choices: ['5', '6', '7', '8'], explanation: 'Three plus four is seven.' },
+    { prompt: 'Which number is bigger?', answer: '9', choices: ['6', '7', '9', '5'], explanation: '9 is the biggest number here.' },
+    { prompt: 'How many sides does a triangle have?', answer: '3', choices: ['2', '3', '4', '5'], explanation: 'A triangle has three sides.' },
   ],
   'fraction-forge': [
-    { prompt: 'Which fraction is greatest?', answer: '3/4', choices: ['1/2', '2/5', '3/4', '5/8'], explanation: '3/4 is 0.75, larger than the other choices.' },
-    { prompt: 'What is 1/4 + 2/4?', answer: '3/4', choices: ['1/8', '2/4', '3/4', '3/8'], explanation: 'The denominators match, so add the numerators.' },
-    { prompt: 'Which is equal to 2/3?', answer: '4/6', choices: ['2/6', '3/6', '4/6', '6/8'], explanation: 'Multiply both parts of 2/3 by 2.' },
-    { prompt: 'A cake has 8 equal slices. You eat 3. What remains?', answer: '5/8', choices: ['3/8', '4/8', '5/8', '7/8'], explanation: 'Eight slices minus three leaves five.' },
-    { prompt: 'Which is smaller?', answer: '3/10', choices: ['3/10', '1/2', '2/3', '4/5'], explanation: '3/10 is 0.3, smaller than one half and the others.' },
+    { prompt: 'Which picture would show one half?', answer: '2 equal parts', choices: ['2 equal parts', '3 equal parts', '5 equal parts', 'No parts'], explanation: 'A half means two equal parts.' },
+    { prompt: 'Which is one quarter?', answer: '1 of 4 equal parts', choices: ['1 of 2 equal parts', '1 of 3 equal parts', '1 of 4 equal parts', '4 of 4 equal parts'], explanation: 'A quarter is one of four equal parts.' },
+    { prompt: 'A pizza has 4 equal pieces. You eat 1. How many are left?', answer: '3', choices: ['1', '2', '3', '4'], explanation: 'Four pieces minus one leaves three.' },
   ],
   'mental-math': [
-    { prompt: '25 + 25 + 25 = ?', answer: '75', choices: ['50', '65', '75', '85'], explanation: 'Three groups of 25 make 75.' },
-    { prompt: '99 + 6 = ?', answer: '105', choices: ['95', '100', '105', '115'], explanation: 'Add 1 to reach 100, then add 5 more.' },
-    { prompt: 'Half of 48 is…', answer: '24', choices: ['12', '18', '24', '28'], explanation: '48 split into two equal groups is 24.' },
-    { prompt: '7 × 8 = ?', answer: '56', choices: ['48', '54', '56', '64'], explanation: 'Seven groups of eight make 56.' },
-    { prompt: 'What is 300 − 99?', answer: '201', choices: ['199', '200', '201', '209'], explanation: '300 − 100 is 200, then add one back.' },
+    { prompt: 'What is 2 + 3?', answer: '5', choices: ['4', '5', '6', '7'], explanation: 'Two plus three is five.' },
+    { prompt: 'What is 10 - 4?', answer: '6', choices: ['5', '6', '7', '8'], explanation: 'Ten take away four is six.' },
+    { prompt: 'What is 5 + 5?', answer: '10', choices: ['8', '9', '10', '11'], explanation: 'Five plus five is ten.' },
   ],
   'logic-lab': [
-    { prompt: 'All glims are blue. Tavi is a glim. What must be true?', answer: 'Tavi is blue', choices: ['Tavi is tall', 'Tavi is blue', 'All blue things are glims', 'Nothing'], explanation: 'The rule says every glim is blue.' },
-    { prompt: 'Mia is taller than Jo. Jo is taller than Lee. Who is shortest?', answer: 'Lee', choices: ['Mia', 'Jo', 'Lee', 'Cannot tell'], explanation: 'The order is Mia, Jo, then Lee.' },
-    { prompt: 'A lock uses 3, 5, and 7. The middle number is first. What starts the code?', answer: '5', choices: ['3', '5', '7', 'Any number'], explanation: 'The middle of 3, 5, 7 is 5.' },
-    { prompt: 'Which does not belong?', answer: 'Square', choices: ['Circle', 'Triangle', 'Square', 'Blue'], explanation: 'Blue is a colour; the others are shapes.' },
-    { prompt: 'If today is Tuesday, what day is it in 9 days?', answer: 'Thursday', choices: ['Wednesday', 'Thursday', 'Friday', 'Saturday'], explanation: 'Seven days returns to Tuesday, plus two is Thursday.' },
+    { prompt: 'Mia is taller than Ben. Who is shorter?', answer: 'Ben', choices: ['Mia', 'Ben', 'Both', 'We do not know'], explanation: 'If Mia is taller, Ben is shorter.' },
+    { prompt: 'Which one is not a fruit?', answer: 'Carrot', choices: ['Apple', 'Banana', 'Carrot', 'Orange'], explanation: 'A carrot is a vegetable.' },
+    { prompt: 'What comes next: red, blue, red, blue, ?', answer: 'Red', choices: ['Red', 'Green', 'Yellow', 'Black'], explanation: 'The colours take turns.' },
   ],
   'word-detective': [
-    { prompt: 'The puppy was timid, so it hid. What does timid mean?', answer: 'Shy', choices: ['Noisy', 'Shy', 'Hungry', 'Fast'], explanation: 'Timid describes someone who feels shy or nervous.' },
-    { prompt: 'Which word is closest to enormous?', answer: 'Huge', choices: ['Tiny', 'Huge', 'Quiet', 'Early'], explanation: 'Enormous means very large.' },
-    { prompt: 'The road was slippery. What might happen?', answer: 'You could slide', choices: ['You could slide', 'You could fly', 'You could shrink', 'You could glow'], explanation: 'A slippery surface makes sliding more likely.' },
-    { prompt: 'Which word means to look closely?', answer: 'Inspect', choices: ['Inspect', 'Ignore', 'Imagine', 'Invite'], explanation: 'To inspect is to examine carefully.' },
-    { prompt: 'What is the opposite of ancient?', answer: 'Modern', choices: ['Old', 'Dusty', 'Modern', 'Famous'], explanation: 'Modern means belonging to the present or recent time.' },
+    { prompt: 'Which word means the same as big?', answer: 'Large', choices: ['Small', 'Large', 'Quiet', 'Fast'], explanation: 'Big and large mean the same thing.' },
+    { prompt: 'What is the opposite of hot?', answer: 'Cold', choices: ['Warm', 'Cold', 'Dry', 'Bright'], explanation: 'Cold is the opposite of hot.' },
+    { prompt: 'Which word names an animal?', answer: 'Tiger', choices: ['Tiger', 'Table', 'Yellow', 'Jump'], explanation: 'A tiger is an animal.' },
   ],
   'eco-scientist': [
-    { prompt: 'Which part of a plant takes in water from soil?', answer: 'Roots', choices: ['Flower', 'Roots', 'Fruit', 'Petal'], explanation: 'Roots anchor the plant and absorb water.' },
-    { prompt: 'What force pulls things toward Earth?', answer: 'Gravity', choices: ['Gravity', 'Sound', 'Light', 'Friction'], explanation: 'Gravity attracts objects toward one another.' },
-    { prompt: 'Which material is usually magnetic?', answer: 'Iron', choices: ['Wood', 'Glass', 'Iron', 'Rubber'], explanation: 'Iron is attracted to magnets.' },
-    { prompt: 'A frog begins life as a…', answer: 'Tadpole', choices: ['Caterpillar', 'Tadpole', 'Pup', 'Seed'], explanation: 'Frogs hatch as tadpoles before changing form.' },
-    { prompt: 'Which is a renewable energy source?', answer: 'Sunlight', choices: ['Coal', 'Oil', 'Sunlight', 'Gas'], explanation: 'Sunlight is naturally replenished.' },
+    { prompt: 'Which part of a plant is usually green and makes food?', answer: 'Leaf', choices: ['Leaf', 'Root', 'Rock', 'Shoe'], explanation: 'Leaves use sunlight to help the plant make food.' },
+    { prompt: 'Which animal can fly?', answer: 'Bird', choices: ['Fish', 'Bird', 'Dog', 'Frog'], explanation: 'Birds have wings and can fly.' },
+    { prompt: 'What do plants need to grow?', answer: 'Water and light', choices: ['Water and light', 'Only toys', 'Only sand', 'Nothing'], explanation: 'Plants need water and light to grow.' },
   ],
   'brain-blitz': [
-    { prompt: 'What is 8 × 7?', answer: '56', choices: ['48', '54', '56', '64'], explanation: 'Eight groups of seven make 56.' },
-    { prompt: 'Which word means “careful and exact”?', answer: 'Precise', choices: ['Precise', 'Sleepy', 'Sudden', 'Rough'], explanation: 'Precise means accurate and exact.' },
-    { prompt: 'What comes next: 3, 6, 12, 24, …?', answer: '48', choices: ['30', '36', '42', '48'], explanation: 'Each number doubles.' },
-    { prompt: 'Which shape has no corners?', answer: 'Circle', choices: ['Triangle', 'Circle', 'Rectangle', 'Star'], explanation: 'A circle is a continuous curved line.' },
-    { prompt: 'If all zibs are green and Lio is a zib, Lio is…', answer: 'Green', choices: ['Blue', 'Green', 'Square', 'Unknown'], explanation: 'The rule applies to every zib.' },
-    { prompt: 'What is one quarter of 20?', answer: '5', choices: ['4', '5', '10', '15'], explanation: '20 divided into four equal groups gives 5.' },
+    { prompt: 'What is 4 + 2?', answer: '6', choices: ['5', '6', '7', '8'], explanation: 'Four plus two is six.' },
+    { prompt: 'Which shape is round?', answer: 'Circle', choices: ['Triangle', 'Circle', 'Square', 'Star'], explanation: 'A circle is round.' },
+    { prompt: 'What is the opposite of up?', answer: 'Down', choices: ['Left', 'Down', 'Right', 'Over'], explanation: 'Down is the opposite of up.' },
+    { prompt: 'Which animal lives in water?', answer: 'Fish', choices: ['Fish', 'Cat', 'Horse', 'Rabbit'], explanation: 'Fish live in water.' },
   ],
 };
 
@@ -517,20 +503,19 @@ function QuizGame({ activity, onComplete }: { activity: Activity; onComplete: (s
       else { setIndex((value) => value + 1); setAnswered(null); setFeedback('Next one is waiting.'); }
     }, 700);
   };
-  return <><GameIntro activity={activity}><div className="game-rule"><Calculator size={15} /> Explain it to yourself before you choose.</div></GameIntro><div className="question-progress"><span>QUESTION {index + 1} / {questions.length}</span><div className="progress-track"><div className="progress-fill" style={{ width: `${(index + 1) / questions.length * 100}%` }} /></div></div><div className={`feedback ${answered && answered !== question.answer ? 'wrong' : ''}`} aria-live="polite">{feedback}</div><div className="quiz-prompt">{question.prompt}</div><div className="choice-grid">{question.choices.map((choice) => <button key={choice} className={`choice-button ${answered && choice === question.answer ? 'correct' : ''} ${answered === choice && choice !== question.answer ? 'wrong' : ''}`} onClick={() => answer(choice)} disabled={Boolean(answered)} data-testid={`button-quiz-choice-${choice}`}>{choice}</button>)}</div></>;
+  return <><GameIntro activity={activity}><div className="game-rule"><Calculator size={15} /> Read the question and pick an answer.</div></GameIntro><div className="question-progress"><span>QUESTION {index + 1} / {questions.length}</span><div className="progress-track"><div className="progress-fill" style={{ width: `${(index + 1) / questions.length * 100}%` }} /></div></div><div className={`feedback ${answered && answered !== question.answer ? 'wrong' : ''}`} aria-live="polite">{feedback}</div><div className="quiz-prompt">{question.prompt}</div><div className="choice-grid">{question.choices.map((choice) => <button key={choice} className={`choice-button ${answered && choice === question.answer ? 'correct' : ''} ${answered === choice && choice !== question.answer ? 'wrong' : ''}`} onClick={() => answer(choice)} disabled={Boolean(answered)} data-testid={`button-quiz-choice-${choice}`}>{choice}</button>)}</div></>;
 }
 
 const patternsById: Record<string, { sequence: string[]; choices: string[]; answer: string }[]> = {
   pattern: [
-    { sequence: ['2', '4', '8', '16', '?'], choices: ['18', '24', '30', '32'], answer: '32' },
-    { sequence: ['A', 'C', 'E', 'G', '?'], choices: ['H', 'I', 'J', 'K'], answer: 'I' },
-    { sequence: ['red', 'red', 'blue', 'red', 'red', '?'], choices: ['red', 'blue', 'green', 'yellow'], answer: 'blue' },
-    { sequence: ['1', '4', '9', '16', '?'], choices: ['20', '24', '25', '36'], answer: '25' },
+    { sequence: ['red', 'blue', 'red', 'blue', '?'], choices: ['red', 'blue', 'green', 'yellow'], answer: 'red' },
+    { sequence: ['1', '2', '1', '2', '?'], choices: ['1', '2', '3', '4'], answer: '1' },
+    { sequence: ['★', '○', '★', '○', '?'], choices: ['★', '○', '□', '△'], answer: '★' },
   ],
   'matrix-mapper': [
-    { sequence: ['▲', '●', '■', '●', '■', '▲', '■', '▲', '?'], choices: ['▲', '●', '■', '◆'], answer: '●' },
-    { sequence: ['1', '2', '4', '2', '4', '8', '4', '8', '?'], choices: ['10', '12', '16', '20'], answer: '16' },
-    { sequence: ['N', 'E', 'S', 'W', 'N', 'E', 'S', '?'], choices: ['N', 'E', 'S', 'W'], answer: 'W' },
+    { sequence: ['▲', '●', '▲', '●', '?'], choices: ['▲', '●', '■', '◆'], answer: '▲' },
+    { sequence: ['■', '○', '■', '○', '?'], choices: ['■', '○', '▲', '★'], answer: '■' },
+    { sequence: ['1', '2', '1', '2', '?'], choices: ['1', '2', '3', '4'], answer: '1' },
   ],
 };
 function PatternGame({ activity, onComplete }: { activity: Activity; onComplete: (score: number) => void }) {
@@ -538,7 +523,7 @@ function PatternGame({ activity, onComplete }: { activity: Activity; onComplete:
   const [index, setIndex] = useState(0);
   const [answered, setAnswered] = useState<string | null>(null);
   const [correct, setCorrect] = useState(0);
-  const [feedback, setFeedback] = useState('Look for the relationship, not just the next tile.');
+  const [feedback, setFeedback] = useState('Look carefully at the pattern.');
   const pattern = patterns[index];
   const choose = (choice: string) => {
     if (answered) return;
@@ -547,10 +532,10 @@ function PatternGame({ activity, onComplete }: { activity: Activity; onComplete:
     setAnswered(choice); setCorrect(nextCorrect); setFeedback(isCorrect ? 'Pattern spotted.' : `The path continues with ${pattern.answer}.`);
     window.setTimeout(() => {
       if (index === patterns.length - 1) onComplete(Math.round(nextCorrect / patterns.length * 100));
-      else { setIndex((value) => value + 1); setAnswered(null); setFeedback('A new path to trace.'); }
+      else { setIndex((value) => value + 1); setAnswered(null); setFeedback('Try the next pattern.'); }
     }, 700);
   };
-  return <><GameIntro activity={activity}><div className="game-rule"><Shapes size={15} /> Check the row, the column, and the change between them.</div></GameIntro><div className="question-count">PATH {index + 1} OF {patterns.length}</div><div className="feedback" aria-live="polite">{feedback}</div><div className={`pattern-sequence ${activity.id === 'matrix-mapper' ? 'matrix-sequence' : ''}`}>{pattern.sequence.map((value, itemIndex) => <span className={`pattern-chip ${value === '?' ? 'missing' : ''}`} key={`${value}-${itemIndex}`}>{value}</span>)}</div><div className="choice-grid">{pattern.choices.map((choice) => <button key={choice} className={`choice-button ${answered && choice === pattern.answer ? 'correct' : ''} ${answered === choice && choice !== pattern.answer ? 'wrong' : ''}`} onClick={() => choose(choice)} disabled={Boolean(answered)}>{choice}</button>)}</div></>;
+  return <><GameIntro activity={activity}><div className="game-rule"><Shapes size={15} /> Look at the shapes and find what is missing.</div></GameIntro><div className="question-count">PATH {index + 1} OF {patterns.length}</div><div className="feedback" aria-live="polite">{feedback}</div><div className={`pattern-sequence ${activity.id === 'matrix-mapper' ? 'matrix-sequence' : ''}`}>{pattern.sequence.map((value, itemIndex) => <span className={`pattern-chip ${value === '?' ? 'missing' : ''}`} key={`${value}-${itemIndex}`}>{value}</span>)}</div><div className="choice-grid">{pattern.choices.map((choice) => <button key={choice} className={`choice-button ${answered && choice === pattern.answer ? 'correct' : ''} ${answered === choice && choice !== pattern.answer ? 'wrong' : ''}`} onClick={() => choose(choice)} disabled={Boolean(answered)}>{choice}</button>)}</div></>;
 }
 
 type SafariRound = { target: number; targetKind: number; kinds: number[] };
@@ -566,9 +551,9 @@ function FocusGame({ activity, onComplete }: { activity: Activity; onComplete: (
     if (found) return;
     if (index !== board.target) { setFeedback('Keep looking. Let your eyes settle.'); return; }
     setFound(true); setFeedback('There it is. Focus found.');
-    window.setTimeout(() => { if (round === 2) onComplete(100); else { setRound((value) => value + 1); setBoard(makeSafariRound()); setFound(false); setFeedback('New round. Find the quiet signal.'); } }, 650);
+    window.setTimeout(() => { if (round === 1) onComplete(100); else { setRound((value) => value + 1); setBoard(makeSafariRound()); setFound(false); setFeedback('New round. Find the quiet signal.'); } }, 650);
   };
-  return <><GameIntro activity={activity}><div className="game-rule"><ScanEye size={15} /> Ignore the decoration. Look for the one different signal.</div></GameIntro><div className="question-count">ROUND {round + 1} OF 3</div><div className="feedback" aria-live="polite">{feedback}</div><div className="safari-target"><span className="target-swatch" /><span>Find the <strong><TargetIcon size={15} style={{ verticalAlign: 'middle' }} /> different one</strong></span></div><div className="safari-board">{board.kinds.map((kind, index) => { const Icon = safariIcons[kind]; return <button key={`${round}-${index}`} className={`safari-tile ${found && index === board.target ? 'found' : ''}`} onClick={() => choose(index)} disabled={found} aria-label={`Shape tile ${index + 1}`}><Icon size={24} /></button>; })}</div></>;
+  return <><GameIntro activity={activity}><div className="game-rule"><ScanEye size={15} /> Find the one that is different.</div></GameIntro><div className="question-count">ROUND {round + 1} OF 2</div><div className="feedback" aria-live="polite">{feedback}</div><div className="safari-target"><span className="target-swatch" /><span>Find the <strong><TargetIcon size={15} style={{ verticalAlign: 'middle' }} /> different one</strong></span></div><div className="safari-board">{board.kinds.map((kind, index) => { const Icon = safariIcons[kind]; return <button key={`${round}-${index}`} className={`safari-tile ${found && index === board.target ? 'found' : ''}`} onClick={() => choose(index)} disabled={found} aria-label={`Shape tile ${index + 1}`}><Icon size={24} /></button>; })}</div></>;
 }
 
 function ReactionGame({ activity, onComplete }: { activity: Activity; onComplete: (score: number) => void }) {
@@ -583,14 +568,14 @@ function ReactionGame({ activity, onComplete }: { activity: Activity; onComplete
     return () => window.clearTimeout(timer);
   }, [phase, round]);
   const tap = () => {
-    if (phase === 'readying') { setFeedback('Too soon. Reset your attention, then wait.'); setPhase('result'); window.setTimeout(() => { if (round === 4) onComplete(Math.round(times.reduce((sum, time) => sum + time, 0) / Math.max(1, times.length) > 650 ? 55 : 75)); else { setRound((value) => value + 1); setPhase('readying'); setFeedback('New round. Wait for the signal.'); } }, 650); return; }
+    if (phase === 'readying') { setFeedback('Too soon. Reset your attention, then wait.'); setPhase('result'); window.setTimeout(() => { if (round === 2) onComplete(Math.round(times.reduce((sum, time) => sum + time, 0) / Math.max(1, times.length) > 650 ? 55 : 75)); else { setRound((value) => value + 1); setPhase('readying'); setFeedback('New round. Wait for the signal.'); } }, 650); return; }
     if (phase !== 'go') return;
     const elapsed = Date.now() - readyAt;
     const nextTimes = [...times, elapsed];
     setTimes(nextTimes); setPhase('result'); setFeedback(`${elapsed} ms. Calm and quick.`);
-    window.setTimeout(() => { if (round === 4) onComplete(Math.max(55, Math.min(100, 125 - Math.round(nextTimes.reduce((sum, time) => sum + time, 0) / nextTimes.length / 8)))); else { setRound((value) => value + 1); setPhase('readying'); setFeedback('Next round. Wait for the signal.'); } }, 650);
+    window.setTimeout(() => { if (round === 2) onComplete(Math.max(55, Math.min(100, 125 - Math.round(nextTimes.reduce((sum, time) => sum + time, 0) / nextTimes.length / 8)))); else { setRound((value) => value + 1); setPhase('readying'); setFeedback('Next round. Wait for the signal.'); } }, 650);
   };
-  return <><GameIntro activity={activity}><div className="game-rule"><Zap size={15} /> Fast is useful. Accurate and calm is better.</div></GameIntro><div className="question-count">RELAY {round + 1} OF 5</div><div className={`feedback ${phase === 'go' ? 'signal' : ''}`} aria-live="polite">{feedback}</div><button className={`reaction-pad ${phase === 'go' ? 'go' : ''}`} onClick={tap} disabled={phase === 'result'}><span>{phase === 'go' ? 'Tap now' : phase === 'readying' ? 'Wait for green' : 'Resetting'}</span><MousePointer2 size={31} /></button><div className="reaction-times">{times.map((time, index) => <span key={index}>{time} ms</span>)}</div></>;
+  return <><GameIntro activity={activity}><div className="game-rule"><Zap size={15} /> Wait for the signal, then tap.</div></GameIntro><div className="question-count">ROUND {round + 1} OF 3</div><div className={`feedback ${phase === 'go' ? 'signal' : ''}`} aria-live="polite">{feedback}</div><button className={`reaction-pad ${phase === 'go' ? 'go' : ''}`} onClick={tap} disabled={phase === 'result'}><span>{phase === 'go' ? 'Tap now' : phase === 'readying' ? 'Wait for green' : 'Resetting'}</span><MousePointer2 size={31} /></button><div className="reaction-times">{times.map((time, index) => <span key={index}>{time} ms</span>)}</div></>;
 }
 
 function CreativeGame({ activity, onComplete }: { activity: Activity; onComplete: (score: number) => void }) {
@@ -604,71 +589,104 @@ function CreativeGame({ activity, onComplete }: { activity: Activity; onComplete
   const start = (event: ReactPointerEvent<HTMLCanvasElement>) => { const context = canvasRef.current?.getContext('2d'); const position = point(event); if (!context || !position || submitted) return; drawingRef.current = true; context.beginPath(); context.moveTo(position.x, position.y); context.strokeStyle = color; context.lineWidth = 5; context.lineCap = 'round'; setStrokeCount((value) => value + 1); };
   const move = (event: ReactPointerEvent<HTMLCanvasElement>) => { if (!drawingRef.current) return; const context = canvasRef.current?.getContext('2d'); const position = point(event); if (!context || !position) return; context.lineTo(position.x, position.y); context.stroke(); };
   const clear = () => { const canvas = canvasRef.current; const context = canvas?.getContext('2d'); if (!canvas || !context) return; context.clearRect(0, 0, canvas.width, canvas.height); context.fillStyle = '#fffdf7'; context.fillRect(0, 0, canvas.width, canvas.height); setStrokeCount(0); };
-  return <><GameIntro activity={activity}><div className="creative-prompt"><PenLine size={15} /><span>Prompt: Draw a machine that could help a tiny explorer.</span></div></GameIntro><div className="canvas-wrap"><canvas ref={canvasRef} width={640} height={360} onPointerDown={start} onPointerMove={move} onPointerUp={() => { drawingRef.current = false; }} onPointerLeave={() => { drawingRef.current = false; }} aria-label="Drawing canvas" /></div><div className="creative-tools"><div className="palette">{['#125d4b', '#e87564', '#e6ae36', '#24364a', '#a56ce3'].map((item) => <button key={item} className={`color-swatch ${color === item ? 'selected' : ''}`} style={{ background: item }} onClick={() => setColor(item)} aria-label={`Choose ${item}`} />)}</div><button className="button-secondary button-small" onClick={clear}><RotateCcw size={15} /> Clear</button><button className="button-primary button-small" disabled={submitted || strokeCount === 0} onClick={() => { setSubmitted(true); onComplete(strokeCount >= 3 ? 100 : 82); }}><Check size={15} /> Save discovery</button></div><p className="canvas-note">{submitted ? 'Your idea is collected. There is no wrong way to invent.' : 'Use your finger or mouse. Add at least a few shapes, lines, or details.'}</p></>;
+  return <><GameIntro activity={activity}><div className="creative-prompt"><PenLine size={15} /><span>Prompt: Draw your favourite animal.</span></div></GameIntro><div className="canvas-wrap"><canvas ref={canvasRef} width={640} height={360} onPointerDown={start} onPointerMove={move} onPointerUp={() => { drawingRef.current = false; }} onPointerLeave={() => { drawingRef.current = false; }} aria-label="Drawing canvas" /></div><div className="creative-tools"><div className="palette">{['#125d4b', '#e87564', '#e6ae36', '#24364a', '#a56ce3'].map((item) => <button key={item} className={`color-swatch ${color === item ? 'selected' : ''}`} style={{ background: item }} onClick={() => setColor(item)} aria-label={`Choose ${item}`} />)}</div><button className="button-secondary button-small" onClick={clear}><RotateCcw size={15} /> Clear</button><button className="button-primary button-small" disabled={submitted || strokeCount === 0} onClick={() => { setSubmitted(true); onComplete(strokeCount >= 3 ? 100 : 82); }}><Check size={15} /> Save drawing</button></div><p className="canvas-note">{submitted ? 'Your idea is collected. There is no wrong way to invent.' : 'Use your finger or mouse. Draw anything you like.'}</p></>;
 }
 
 function StoryGame({ activity, onComplete }: { activity: Activity; onComplete: (score: number) => void }) {
-  const scenes = [{ text: 'The lantern in the garden is glowing before sunset. What do you do?', choices: ['Follow the glow', 'Ask a friend to join', 'Write down what you notice'] }, { text: 'Behind the gate you find a tiny door. What helps next?', choices: ['Look for a pattern', 'Push as hard as possible', 'Walk away immediately'] }, { text: 'Inside is a seed with a note: “Give me what I need.”', choices: ['Give it water and light', 'Hide it in a box', 'Forget the clue'] }];
+  const scenes = [
+    { text: 'You find a little puppy near the park. What do you do?', choices: ['Help it find its owner', 'Run away and hide it', 'Ignore it'] },
+    { text: 'You see a sign with a phone number. What helps most?', choices: ['Read the number', 'Tear the sign', 'Hide the sign'] },
+    { text: 'The owner arrives. What should you do?', choices: ['Give the puppy back', 'Take the puppy home', 'Walk away'] },
+  ];
   const [index, setIndex] = useState(0);
   const [choices, setChoices] = useState<string[]>([]);
-  const choose = (choice: string) => { const next = [...choices, choice]; setChoices(next); if (index === scenes.length - 1) onComplete(Math.max(70, 100 - next.filter((item) => item.includes('hard') || item.includes('Forget')).length * 12)); else setIndex((value) => value + 1); };
-  return <><GameIntro activity={activity}><div className="game-rule"><WandSparkles size={15} /> There can be more than one thoughtful answer.</div></GameIntro><div className="story-progress">SCENE {index + 1} OF {scenes.length}</div><div className="story-card"><Sparkles size={21} /><p>{scenes[index].text}</p></div><div className="story-options">{scenes[index].choices.map((choice) => <button className="choice-button story-choice" key={choice} onClick={() => choose(choice)}>{choice}<ArrowRight size={17} /></button>)}</div></>;
+  const choose = (choice: string) => { const next = [...choices, choice]; setChoices(next); if (index === scenes.length - 1) onComplete(Math.max(70, 100 - next.filter((item) => item.includes('Run') || item.includes('Tear') || item.includes('Take')).length * 10)); else setIndex((value) => value + 1); };
+  return <><GameIntro activity={activity}><div className="game-rule"><WandSparkles size={15} /> There is no wrong way to make up a story.</div></GameIntro><div className="story-progress">SCENE {index + 1} OF {scenes.length}</div><div className="story-card"><Sparkles size={21} /><p>{scenes[index].text}</p></div><div className="story-options">{scenes[index].choices.map((choice) => <button className="choice-button story-choice" key={choice} onClick={() => choose(choice)}>{choice}<ArrowRight size={17} /></button>)}</div></>;
 }
 
 function ReadingGame({ activity, onComplete }: { activity: Activity; onComplete: (score: number) => void }) {
-  const questions: QuizQuestion[] = [{ prompt: 'Why did Mina keep the small map?', answer: 'It showed a place worth exploring', choices: ['It was colourful', 'It showed a place worth exploring', 'It belonged to a teacher', 'It was very old'], explanation: 'The map mattered because it pointed toward a new place.' }, { prompt: 'What changed after Mina listened to the stream?', answer: 'She noticed a hidden path', choices: ['It began to rain', 'She noticed a hidden path', 'She lost the map', 'The stream stopped'], explanation: 'Listening carefully helped Mina notice the path.' }, { prompt: 'What is the main idea of the passage?', answer: 'Careful attention can reveal new possibilities', choices: ['Maps are difficult', 'Careful attention can reveal new possibilities', 'Streams are dangerous', 'Mina wanted to go home'], explanation: 'Mina discovers more by observing and staying curious.' }];
-  const passage = 'Mina followed a small map through the garden, but the path ended beside a noisy stream. Instead of turning back, she sat quietly. The longer she listened, the more she noticed: a repeated birdcall, a loose stone, and a line of moss leading behind the reeds. When she moved the stone, a narrow path appeared. It was not a shortcut. It was a place she would never have found by rushing.';
+  const questions: QuizQuestion[] = [
+    { prompt: 'What did Sam find?', answer: 'A red ball', choices: ['A red ball', 'A blue shoe', 'A green hat', 'A book'], explanation: 'Sam found a red ball under the bench.' },
+    { prompt: 'Where was the ball?', answer: 'Under the bench', choices: ['Under the bench', 'In a tree', 'On the road', 'In a bag'], explanation: 'The ball was under the bench.' },
+    { prompt: 'What did Sam do?', answer: 'He gave it to Mia', choices: ['He kicked it away', 'He gave it to Mia', 'He hid it', 'He threw it'], explanation: 'Sam knew the ball belonged to Mia.' },
+  ];
+  const passage = 'Sam was playing in the park. He saw a red ball under a bench. Sam picked it up and saw Mia looking for it. He gave the ball to Mia, and they played together.';
   const [index, setIndex] = useState(0);
   const [answered, setAnswered] = useState<string | null>(null);
   const [correct, setCorrect] = useState(0);
   const question = questions[index];
   const choose = (choice: string) => { if (answered) return; const next = correct + (choice === question.answer ? 1 : 0); setCorrect(next); setAnswered(choice); window.setTimeout(() => { if (index === questions.length - 1) onComplete(Math.round(next / questions.length * 100)); else { setIndex((value) => value + 1); setAnswered(null); } }, 700); };
-  return <><GameIntro activity={activity}><div className="game-rule"><BookText size={15} /> Read for what the details suggest, not just what they say.</div></GameIntro><article className="reading-passage"><span className="eyebrow">The hidden path</span><p>{passage}</p></article><div className="question-count">QUESTION {index + 1} OF {questions.length}</div><div className="quiz-prompt reading-question">{question.prompt}</div><div className="choice-grid">{question.choices.map((choice) => <button key={choice} className={`choice-button reading-choice ${answered && choice === question.answer ? 'correct' : ''} ${answered === choice && choice !== question.answer ? 'wrong' : ''}`} onClick={() => choose(choice)} disabled={Boolean(answered)}>{choice}</button>)}</div></>;
+  return <><GameIntro activity={activity}><div className="game-rule"><BookText size={15} /> Read the story, then choose.</div></GameIntro><article className="reading-passage"><span className="eyebrow">A park day</span><p>{passage}</p></article><div className="question-count">QUESTION {index + 1} OF {questions.length}</div><div className="quiz-prompt reading-question">{question.prompt}</div><div className="choice-grid">{question.choices.map((choice) => <button key={choice} className={`choice-button reading-choice ${answered && choice === question.answer ? 'correct' : ''} ${answered === choice && choice !== question.answer ? 'wrong' : ''}`} onClick={() => choose(choice)} disabled={Boolean(answered)}>{choice}</button>)}</div></>;
 }
 
-const spatialRounds = [{ prompt: 'You are facing North. Turn right. Which way are you facing?', answer: 'East', choices: ['North', 'East', 'South', 'West'] }, { prompt: 'The star is left of the circle. Where is the circle from the star?', answer: 'Right', choices: ['Above', 'Below', 'Left', 'Right'] }, { prompt: 'Walk two steps East, then turn around. Which way do you walk?', answer: 'West', choices: ['North', 'East', 'South', 'West'] }];
+const spatialRounds = [
+  { prompt: 'The arrow points up. Which way is it?', answer: 'Up', choices: ['Up', 'Down', 'Left', 'Right'] },
+  { prompt: 'The ball is on the left. Where is the star?', answer: 'Right', choices: ['Up', 'Down', 'Left', 'Right'] },
+  { prompt: 'Move one step right. Which way did you go?', answer: 'Right', choices: ['Up', 'Down', 'Left', 'Right'] },
+];
 function SpatialGame({ activity, onComplete }: { activity: Activity; onComplete: (score: number) => void }) {
   const [index, setIndex] = useState(0); const [answered, setAnswered] = useState<string | null>(null); const [correct, setCorrect] = useState(0); const round = spatialRounds[index];
-  const icons: Record<string, LucideIcon> = { North: ArrowUp, East: ArrowRight, South: ArrowDown, West: ArrowLeft, Above: ArrowUp, Below: ArrowDown, Left: ArrowLeft, Right: ArrowRight };
+  const icons: Record<string, LucideIcon> = { Up: ArrowUp, Down: ArrowDown, Left: ArrowLeft, Right: ArrowRight };
   const choose = (choice: string) => { if (answered) return; const next = correct + (choice === round.answer ? 1 : 0); setCorrect(next); setAnswered(choice); window.setTimeout(() => { if (index === spatialRounds.length - 1) onComplete(Math.round(next / spatialRounds.length * 100)); else { setIndex((value) => value + 1); setAnswered(null); } }, 650); };
-  return <><GameIntro activity={activity}><div className="game-rule"><Map size={15} /> Imagine the turn in your head before you move the marker.</div></GameIntro><div className="question-count">MAP STEP {index + 1} OF {spatialRounds.length}</div><div className="spatial-prompt"><Grid3X3 size={27} /><p>{round.prompt}</p></div><div className="direction-grid">{round.choices.map((choice) => { const Icon = icons[choice]; return <button className={`direction-button ${answered && choice === round.answer ? 'correct' : ''} ${answered === choice && choice !== round.answer ? 'wrong' : ''}`} key={choice} onClick={() => choose(choice)} disabled={Boolean(answered)}><Icon size={24} /><span>{choice}</span></button>; })}</div></>;
+  return <><GameIntro activity={activity}><div className="game-rule"><Map size={15} /> Look at the arrows and choose a direction.</div></GameIntro><div className="question-count">MAP STEP {index + 1} OF {spatialRounds.length}</div><div className="spatial-prompt"><Grid3X3 size={27} /><p>{round.prompt}</p></div><div className="direction-grid">{round.choices.map((choice) => { const Icon = icons[choice]; return <button className={`direction-button ${answered && choice === round.answer ? 'correct' : ''} ${answered === choice && choice !== round.answer ? 'wrong' : ''}`} key={choice} onClick={() => choose(choice)} disabled={Boolean(answered)}><Icon size={24} /><span>{choice}</span></button>; })}</div></>;
 }
 
-const buildRounds = [{ prompt: 'Your bridge needs to cross a small gap. Which first choice makes it steadier?', answer: 'A wide base', choices: ['A wide base', 'One tall pole', 'A heavy stone on one side'] }, { prompt: 'The bridge is strong but too heavy. What is a smart next step?', answer: 'Use light supports in a triangle', choices: ['Add more heavy stones', 'Use light supports in a triangle', 'Remove the floor'] }, { prompt: 'A friend needs to cross safely. What should you test?', answer: 'Balance and movement', choices: ['Only its colour', 'Balance and movement', 'How loud it is'] }];
+const buildRounds = [
+  { prompt: 'Which base is better for a toy bridge?', answer: 'A wide base', choices: ['A wide base', 'One tiny stick', 'A wobbly base'] },
+  { prompt: 'What should you use to join two blocks?', answer: 'A strong piece', choices: ['A strong piece', 'A wet leaf', 'Nothing'] },
+  { prompt: 'What should you check before a friend walks across?', answer: 'Is it safe?', choices: ['Is it safe?', 'Is it shiny?', 'Is it loud?'] },
+];
 function BuildGame({ activity, onComplete }: { activity: Activity; onComplete: (score: number) => void }) {
   const [index, setIndex] = useState(0); const [answered, setAnswered] = useState<string | null>(null); const [correct, setCorrect] = useState(0); const round = buildRounds[index];
   const choose = (choice: string) => { if (answered) return; const next = correct + (choice === round.answer ? 1 : 0); setCorrect(next); setAnswered(choice); window.setTimeout(() => { if (index === buildRounds.length - 1) onComplete(Math.round(next / buildRounds.length * 100)); else { setIndex((value) => value + 1); setAnswered(null); } }, 680); };
-  return <><GameIntro activity={activity}><div className="game-rule"><Construction size={15} /> Think like a designer: test, notice, improve.</div></GameIntro><div className="mission-badge"><Blocks size={17} /><span>BUILD BRIEF</span><strong>{activity.id === 'blueprint-builder' ? 'Stable bridge challenge' : 'Explorer bridge challenge'}</strong></div><div className="question-count">DESIGN DECISION {index + 1} OF {buildRounds.length}</div><div className="quiz-prompt">{round.prompt}</div><div className="choice-stack">{round.choices.map((choice) => <button className={`choice-button build-choice ${answered && choice === round.answer ? 'correct' : ''} ${answered === choice && choice !== round.answer ? 'wrong' : ''}`} key={choice} onClick={() => choose(choice)} disabled={Boolean(answered)}>{choice}<ArrowRight size={17} /></button>)}</div></>;
+  return <><GameIntro activity={activity}><div className="game-rule"><Construction size={15} /> Choose the safe and strong idea.</div></GameIntro><div className="mission-badge"><Blocks size={17} /><span>TOY BRIDGE</span><strong>{activity.id === 'blueprint-builder' ? 'Make it strong' : 'Help the robot'}</strong></div><div className="question-count">QUESTION {index + 1} OF {buildRounds.length}</div><div className="quiz-prompt">{round.prompt}</div><div className="choice-stack">{round.choices.map((choice) => <button className={`choice-button build-choice ${answered && choice === round.answer ? 'correct' : ''} ${answered === choice && choice !== round.answer ? 'wrong' : ''}`} key={choice} onClick={() => choose(choice)} disabled={Boolean(answered)}>{choice}<ArrowRight size={17} /></button>)}</div></>;
 }
 
 const detectiveCases: Record<string, { title: string; clues: string[]; questions: QuizQuestion[] }> = {
-  'code-breaker': { title: 'The three-symbol lock', clues: ['The circle is not first.', 'The triangle comes immediately before the square.', 'The star is last.'], questions: [{ prompt: 'Which pair must sit together?', answer: 'Triangle then square', choices: ['Circle then star', 'Triangle then square', 'Star then circle', 'Square then triangle'], explanation: 'The second clue gives the pair and its order.' }, { prompt: 'What can you safely say about the star?', answer: 'It is last', choices: ['It is first', 'It is in the middle', 'It is last', 'It is beside the circle'], explanation: 'The final clue tells us its exact position.' }] },
-  'case-file': { title: 'The missing telescope', clues: ['The telescope was seen before sunset.', 'The red scarf was found beside the east door.', 'The east door opens toward the garden.', 'A muddy footprint points away from the garden.'], questions: [{ prompt: 'Which clue is a location clue?', answer: 'The red scarf was found beside the east door', choices: ['The telescope was seen before sunset', 'The red scarf was found beside the east door', 'The door is painted blue', 'Someone likes stars'], explanation: 'It gives a place where evidence was found.' }, { prompt: 'What should a careful detective do next?', answer: 'Compare the footprint with the garden path', choices: ['Guess immediately', 'Compare the footprint with the garden path', 'Hide the scarf', 'Ignore the clues'], explanation: 'The next step should test the evidence.' }, { prompt: 'What is the strongest habit in this case?', answer: 'Separate facts from guesses', choices: ['Run fast', 'Separate facts from guesses', 'Choose the funniest answer', 'Use the loudest clue'], explanation: 'Good detectives label what they know before inferring.' }] },
+  'code-breaker': { title: 'Shape clues', clues: ['The circle is first.', 'The star is last.', 'The triangle is in the middle.'], questions: [
+    { prompt: 'Which shape is first?', answer: 'Circle', choices: ['Circle', 'Star', 'Triangle', 'Square'], explanation: 'The first clue says the circle is first.' },
+    { prompt: 'Which shape is last?', answer: 'Star', choices: ['Circle', 'Star', 'Triangle', 'Square'], explanation: 'The second clue says the star is last.' },
+  ] },
+  'case-file': { title: 'Lost lunchbox', clues: ['The lunchbox is blue.', 'A blue box is under the table.', 'The table is in the classroom.'], questions: [
+    { prompt: 'What colour is the lunchbox?', answer: 'Blue', choices: ['Red', 'Blue', 'Green', 'Yellow'], explanation: 'The first clue says it is blue.' },
+    { prompt: 'Where should you look first?', answer: 'Under the table', choices: ['In the garden', 'Under the table', 'On the roof', 'In the car'], explanation: 'The second clue gives the location.' },
+    { prompt: 'Where is the table?', answer: 'In the classroom', choices: ['In the classroom', 'In the park', 'At the beach', 'In the kitchen'], explanation: 'The last clue tells us where the table is.' },
+  ] },
 };
 function DetectiveGame({ activity, onComplete }: { activity: Activity; onComplete: (score: number) => void }) {
   const data = detectiveCases[activity.id] ?? detectiveCases['case-file']; const [index, setIndex] = useState(0); const [answered, setAnswered] = useState<string | null>(null); const [correct, setCorrect] = useState(0); const question = data.questions[index];
   const choose = (choice: string) => { if (answered) return; const next = correct + (choice === question.answer ? 1 : 0); setCorrect(next); setAnswered(choice); window.setTimeout(() => { if (index === data.questions.length - 1) onComplete(Math.round(next / data.questions.length * 100)); else { setIndex((value) => value + 1); setAnswered(null); } }, 700); };
-  return <><GameIntro activity={activity}><div className="game-rule"><ShieldQuestion size={15} /> Evidence first. Explanation second. Guessing last.</div></GameIntro><div className="case-board"><span className="eyebrow">CASE BOARD / {data.title}</span><div className="clue-grid">{data.clues.map((clue, clueIndex) => <div className="clue-card" key={clue}><span>{String(clueIndex + 1).padStart(2, '0')}</span>{clue}</div>)}</div></div><div className="question-count">CLUE CHECK {index + 1} OF {data.questions.length}</div><div className="quiz-prompt">{question.prompt}</div><div className="choice-stack">{question.choices.map((choice) => <button className={`choice-button build-choice ${answered && choice === question.answer ? 'correct' : ''} ${answered === choice && choice !== question.answer ? 'wrong' : ''}`} key={choice} onClick={() => choose(choice)} disabled={Boolean(answered)}>{choice}<ArrowRight size={17} /></button>)}</div></>;
+  return <><GameIntro activity={activity}><div className="game-rule"><ShieldQuestion size={15} /> Look at the clues before you choose.</div></GameIntro><div className="case-board"><span className="eyebrow">CLUES / {data.title}</span><div className="clue-grid">{data.clues.map((clue, clueIndex) => <div className="clue-card" key={clue}><span>{String(clueIndex + 1).padStart(2, '0')}</span>{clue}</div>)}</div></div><div className="question-count">QUESTION {index + 1} OF {data.questions.length}</div><div className="quiz-prompt">{question.prompt}</div><div className="choice-stack">{question.choices.map((choice) => <button className={`choice-button build-choice ${answered && choice === question.answer ? 'correct' : ''} ${answered === choice && choice !== question.answer ? 'wrong' : ''}`} key={choice} onClick={() => choose(choice)} disabled={Boolean(answered)}>{choice}<ArrowRight size={17} /></button>)}</div></>;
 }
 
 function RhythmGame({ activity, onComplete }: { activity: Activity; onComplete: (score: number) => void }) {
-  const sequence = activity.id === 'sequence-recall' ? [0, 2, 1, 3, 1, 2] : [0, 1, 2, 1, 0];
+  const sequence = activity.id === 'sequence-recall' ? [0, 2, 1] : [0, 1, 0];
   const [started, setStarted] = useState(false); const [input, setInput] = useState<number[]>([]); const [mistakes, setMistakes] = useState(0); const [feedback, setFeedback] = useState('Watch the phrase, then tap it back.');
   const start = () => { setStarted(true); setFeedback('Tap the pads in the same order.'); };
   const tap = (pad: number) => { if (!started) return; const position = input.length; if (pad !== sequence[position]) { setMistakes((value) => value + 1); setFeedback('Not that pad. Listen for the next beat.'); return; } const next = [...input, pad]; setInput(next); if (next.length === sequence.length) { setFeedback('Phrase complete. You kept the pattern alive.'); onComplete(Math.max(55, 100 - mistakes * 10)); } };
-  return <><GameIntro activity={activity}><div className="game-rule"><Music2 size={15} /> Rhythm is memory with timing. Find the pulse.</div></GameIntro><div className="rhythm-display"><span className="eyebrow">{started ? 'YOUR TURN' : 'LISTENING LAB'}</span><strong>{started ? `${input.length} / ${sequence.length}` : 'Ready?'}</strong><div className="rhythm-dots">{sequence.map((_, index) => <i key={index} className={index < input.length ? 'done' : ''} />)}</div></div><div className="feedback" aria-live="polite">{feedback}</div><div className="rhythm-pads">{[0, 1, 2, 3].map((pad) => <button className={`rhythm-pad pad-${pad}`} key={pad} onClick={() => tap(pad)} disabled={!started}><span>{pad + 1}</span><Music2 size={22} /></button>)}</div>{!started && <button className="button-primary centered-button" onClick={start}><Play size={16} /> Start the phrase</button>}</>;
+  return <><GameIntro activity={activity}><div className="game-rule"><Music2 size={15} /> Watch the beat and copy it.</div></GameIntro><div className="rhythm-display"><span className="eyebrow">{started ? 'YOUR TURN' : 'WATCH'}</span><strong>{started ? `${input.length} / ${sequence.length}` : 'Ready?'}</strong><div className="rhythm-dots">{sequence.map((_, index) => <i key={index} className={index < input.length ? 'done' : ''} />)}</div></div><div className="feedback" aria-live="polite">{feedback}</div><div className="rhythm-pads">{[0, 1, 2, 3].map((pad) => <button className={`rhythm-pad pad-${pad}`} key={pad} onClick={() => tap(pad)} disabled={!started}><span>{pad + 1}</span><Music2 size={22} /></button>)}</div>{!started && <button className="button-primary centered-button" onClick={start}><Play size={16} /> Start the phrase</button>}</>;
 }
 
 function ArcadeGame({ activity, onComplete }: { activity: Activity; onComplete: (score: number) => void }) {
-  const [round, setRound] = useState(0); const [cleared, setCleared] = useState<number[]>([]); const [feedback, setFeedback] = useState('Clear the multiples of 3.'); const values = useMemo(() => Array.from({ length: 12 }, (_, index) => index + 2 + round * 3), [round]);
-  const target = (value: number) => value % 3 === 0;
-  const choose = (index: number) => { if (cleared.includes(index)) return; if (!target(values[index])) { setFeedback('That asteroid is drifting safely. Look for a multiple of 3.'); return; } const next = [...cleared, index]; setCleared(next); setFeedback('Target cleared. Keep scanning.'); const remaining = values.filter((value, valueIndex) => target(value) && !next.includes(valueIndex)); if (remaining.length === 0) { if (round === 2) onComplete(Math.max(70, 100 - (next.length - 4) * 4)); else { window.setTimeout(() => { setRound((value) => value + 1); setCleared([]); setFeedback('New sector. Find the multiples of 3.'); }, 550); } } };
-  return <><GameIntro activity={activity}><div className="game-rule"><Gamepad2 size={15} /> Scan the whole sector before you launch.</div></GameIntro><div className="question-count">SECTOR {round + 1} OF 3</div><div className="feedback" aria-live="polite">{feedback}</div><div className="arcade-board">{values.map((value, index) => <button key={value} className={`arcade-tile ${cleared.includes(index) ? 'cleared' : ''}`} onClick={() => choose(index)}><span>{value}</span><span className="asteroid-ring" /></button>)}</div></>;
+  const [round, setRound] = useState(0); const [cleared, setCleared] = useState<number[]>([]); const [feedback, setFeedback] = useState('Find the even numbers.');
+  const values = useMemo(() => Array.from({ length: 8 }, (_, index) => index + 1 + round * 8), [round]);
+  const target = (value: number) => value % 2 === 0;
+  const choose = (index: number) => {
+    if (cleared.includes(index)) return;
+    if (!target(values[index])) { setFeedback('Not this one. Find an even number.'); return; }
+    const next = [...cleared, index]; setCleared(next); setFeedback('Good find!');
+    const remaining = values.filter((value, valueIndex) => target(value) && !next.includes(valueIndex));
+    if (remaining.length === 0) {
+      if (round === 1) onComplete(100);
+      else window.setTimeout(() => { setRound(1); setCleared([]); setFeedback('One more round. Find the even numbers.'); }, 450);
+    }
+  };
+  return <><GameIntro activity={activity}><div className="game-rule"><Gamepad2 size={15} /> Find all the even numbers.</div></GameIntro><div className="question-count">ROUND {round + 1} OF 2</div><div className="feedback" aria-live="polite">{feedback}</div><div className="arcade-board">{values.map((value, index) => <button key={value} className={`arcade-tile ${cleared.includes(index) ? 'cleared' : ''}`} onClick={() => choose(index)}><span>{value}</span><span className="asteroid-ring" /></button>)}</div></>;
 }
 
 function CompletionView({ activity, score, onReplay, onHome }: { activity: Activity; score: number; onReplay: () => void; onHome: () => void }) {
   const stars = score >= 90 ? 3 : score >= 65 ? 2 : 1;
-  return <div className="complete-card"><div className="complete-stamp"><Check size={35} strokeWidth={3} /></div><span className="eyebrow">Mission collected</span><h2>Nice work, explorer.</h2><div className="stars" aria-label={`${stars} stars earned`}>{[1, 2, 3].map((star) => <Star key={star} size={25} fill={star <= stars ? 'currentColor' : 'none'} opacity={star <= stars ? 1 : .25} />)}</div><p>You finished {activity.title} with a score of <strong>{score}</strong>. The next good move is whichever mission feels interesting.</p><div className="complete-actions"><button className="button-primary" onClick={onReplay} data-testid="button-replay-activity"><RotateCcw size={17} /> Play again</button><button className="button-secondary" onClick={onHome} data-testid="button-completion-home">Back to academy</button></div></div>;
+  return <div className="complete-card"><div className="complete-stamp"><Check size={35} strokeWidth={3} /></div><span className="eyebrow">Activity complete</span><h2>Nice work, explorer.</h2><div className="stars" aria-label={`${stars} stars earned`}>{[1, 2, 3].map((star) => <Star key={star} size={25} fill={star <= stars ? 'currentColor' : 'none'} opacity={star <= stars ? 1 : .25} />)}</div><p>You finished {activity.title}. Great job trying!</p><div className="complete-actions"><button className="button-primary" onClick={onReplay} data-testid="button-replay-activity"><RotateCcw size={17} /> Play again</button><button className="button-secondary" onClick={onHome} data-testid="button-completion-home">Back to academy</button></div></div>;
 }
 
 function NotFound() { return <div className="content"><div className="page-heading"><span className="eyebrow">Trail marker missing</span><h1>That path wandered off.</h1><p className="subtle">Let’s head back to the academy and choose another mission.</p><Link href="/" className="button-primary" data-testid="link-not-found-home">Back to academy <ArrowRight size={17} /></Link></div></div>; }
