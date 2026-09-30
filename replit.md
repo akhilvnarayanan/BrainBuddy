@@ -1,8 +1,9 @@
 # BrightSprout
 
-BrightSprout is an offline-first activity and learning playground for children
-aged 6+, combining short math, memory, pattern, and focus games with gentle
-progress rewards.
+BrightSprout is an offline-first Kids Learning & Brain Development Platform for
+children aged 6+, combining 23 short missions across mathematics, memory, logic,
+focus, creativity, language, reading, science, design, music, mystery, and
+arcade-style learning with gentle progress rewards.
 
 ## Run & Operate
 
@@ -45,8 +46,12 @@ progress rewards.
 
 ## Product
 
-- A home trail with four focused activities: Memory Match, Number Quest,
-  Pattern Path, and Focus Safari.
+- A learning academy with 23 filtered missions, featured pathways, a daily
+  challenge, search, difficulty labels, and responsive navigation.
+- Multiple playable formats including memory matching, mathematics and language
+  questions, pattern reasoning, visual focus, reaction timing, freehand drawing,
+  story choices, reading comprehension, spatial navigation, design decisions,
+  evidence boards, rhythm tapping, and arcade target scanning.
 - Playable activity flows with restart, back navigation, score feedback, and
   completion states.
 - Local persistence for completed activities, best scores, streak, settings,

@@ -23,12 +23,18 @@ patterns, and accessibility considerations.
 
 ## Product decisions
 
-- BrightSprout starts with four activities that cover distinct skills:
-  Memory Match (working memory), Number Quest (arithmetic fluency), Pattern
-  Path (visual sequencing), and Focus Safari (inhibition and visual attention).
+- BrightSprout is a single academy with 23 missions across brain development,
+  advanced mathematics, logic, focus, memory, creativity, drawing, language,
+  reading, problem solving, patterns, observation, reaction, spatial reasoning,
+  science, building, music, detective work, arcade play, and timed challenges.
+- Activities use several interaction formats rather than a repeated quiz shell:
+  matching, multi-step questions, pattern completion, visual search, reaction
+  timing, freehand drawing, story decisions, reading comprehension, navigation,
+  design choices, evidence boards, rhythm tapping, and arcade target scanning.
 - Progress is local-only in the first release. No accounts, ads, social feed, or
   leaderboard are included.
 - Feedback is encouraging and specific. A mistake gives a retry or a hint
-  path rather than removing progress.
+  path rather than removing progress; difficulty is visible so children can
+  choose a useful stretch.
 - The interface uses original CSS-built shapes and iconography instead of
   repository artwork, screenshots, sounds, or external image URLs.
