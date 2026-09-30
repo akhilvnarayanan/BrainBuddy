@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "BrightSprout"
+description = "An offline-first activity and learning playground for children aged 6+, combining short math, memory, pattern, and focus games with gentle progress rewards."
+version = "1.0.0"
+id = "artifacts/kids-activity-learning"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19433
+
+[services.development]
+run = "pnpm --filter @workspace/kids-activity-learning run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/kids-activity-learning", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/kids-activity-learning/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19433"
+BASE_PATH = "/"

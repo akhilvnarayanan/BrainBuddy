@@ -1,6 +1,8 @@
-# [Project name]
+# BrightSprout
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+BrightSprout is an offline-first activity and learning playground for children
+aged 6+, combining short math, memory, pattern, and focus games with gentle
+progress rewards.
 
 ## Run & Operate
 
@@ -22,15 +24,33 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/kids-activity-learning/` — the BrightSprout React/Vite app
+- `artifacts/kids-activity-learning/src/App.tsx` — activity state, progress, and
+  the main application shell
+- `artifacts/kids-activity-learning/src/index.css` — visual system and
+  responsive styling
+- `artifacts/kids-activity-learning/docs/SOURCE-ANALYSIS.md` — repository
+  review and license boundaries
+- `artifacts/kids-activity-learning/docs/ATTRIBUTIONS.md` — source links and
+  attribution notice
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- The first release is local-only: there are no accounts, ads, social features,
+  or leaderboards.
+- Activity mechanics are original implementations informed by the reviewed
+  repositories; unlicensed code and media were not copied.
+- Progress is intentionally positive and lightweight: stars and streaks
+  encourage practice without deducting progress for mistakes.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+- A home trail with four focused activities: Memory Match, Number Quest,
+  Pattern Path, and Focus Safari.
+- Playable activity flows with restart, back navigation, score feedback, and
+  completion states.
+- Local persistence for completed activities, best scores, streak, settings,
+  and weekly practice minutes.
 
 ## User preferences
 
