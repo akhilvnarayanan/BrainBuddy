@@ -184,6 +184,16 @@ function dailyActivityId(date = new Date()): ActivityId {
   const dayNumber = Math.floor(date.getTime() / 86400000);
   return ACTIVITY_LIBRARY[dayNumber % ACTIVITY_LIBRARY.length].id;
 }
+
+function visibleWeeklyMinutes(progress: ProgressState): number {
+  return progress.weekKey === weekKey() ? progress.weeklyMinutes : 0;
+}
+
+function visibleStreak(progress: ProgressState): number {
+  if (!progress.lastActivityDate) return 0;
+  const gap = dateDifferenceInDays(progress.lastActivityDate, localDateKey());
+  return gap <= 1 ? progress.streak : 0;
+}
 const ACTIVITY_LIBRARY: Omit<Activity, 'completed' | 'bestScore'>[] = [
   { id: 'memory', title: 'Memory Match', kicker: 'Memory', subtitle: 'Find two pictures that match.', domain: 'Memory', skill: 'Memory', duration: 3, level: 1, color: 'teal', icon: Brain, kind: 'memory', featured: true },
   { id: 'sequence-recall', title: 'Copy the Pattern', kicker: 'Memory', subtitle: 'Watch the lights, then tap them in the same order.', domain: 'Memory', skill: 'Memory', duration: 2, level: 1, color: 'ink', icon: ListChecks, kind: 'rhythm' },
@@ -269,7 +279,7 @@ function App() {
         totalStars: isNewActivity ? current.totalStars + stars : current.totalStars,
         streak: nextStreak,
         sessions: current.sessions + 1,
-        weeklyMinutes: Math.min(20, minutesThisWeek + activity.duration),
+        weeklyMinutes: minutesThisWeek + activity.duration,
         weekKey: thisWeek,
         lastActivityDate: today,
         bestScores: { ...current.bestScores, [id]: Math.max(current.bestScores[id] ?? 0, score) },
@@ -397,7 +407,7 @@ function HomePage({ activities, progress }: { activities: Activity[]; progress: 
       <div className="challenge-banner"><div className="challenge-icon"><Timer size={25} /></div><div><span className="eyebrow">Today's challenge</span><h3>One fresh activity, just for today.</h3><p>Try <strong>{activities.find((item) => item.id === dailyActivityId())?.title}</strong>. Tomorrow the challenge changes.</p></div><Link href={`/play/${dailyActivityId()}`} className="button-secondary button-small">Start today's challenge <ArrowRight size={15} /></Link></div>
 
       <div className="dashboard-row">
-        <section className="panel" aria-labelledby="week-heading"><div className="panel-head"><div><span className="eyebrow">Your rhythm</span><h3 id="week-heading">Small sessions add up</h3></div><Clock3 size={21} color="hsl(161 43% 33%)" /></div><div className="stat-big" data-testid="text-weekly-minutes">{progress.weeklyMinutes}<span className="unit-label"> min</span></div><p className="stat-caption">of your 20 minute weekly goal</p><div className="progress-track" style={{ marginTop: 16 }}><div className="progress-fill" style={{ width: `${Math.min(100, progress.weeklyMinutes / 20 * 100)}%` }} /></div><div className="streak-strip"><Star size={22} fill="currentColor" /><div><strong>{progress.streak || 0} discovery sessions in a row</strong><span>Every small step counts.</span></div></div></section>
+        <section className="panel" aria-labelledby="week-heading"><div className="panel-head"><div><span className="eyebrow">Your rhythm</span><h3 id="week-heading">Small sessions add up</h3></div><Clock3 size={21} color="hsl(161 43% 33%)" /></div><div className="stat-big" data-testid="text-weekly-minutes">{visibleWeeklyMinutes(progress)}<span className="unit-label"> min</span></div><p className="stat-caption">of your 20 minute weekly goal</p><div className="progress-track" style={{ marginTop: 16 }}><div className="progress-fill" style={{ width: `${Math.min(100, visibleWeeklyMinutes(progress) / 20 * 100)}%` }} /></div><div className="streak-strip"><Star size={22} fill="currentColor" /><div><strong>{progress.streak || 0} discovery sessions in a row</strong><span>Every small step counts.</span></div></div></section>
         <section className="panel" aria-labelledby="trail-heading"><div className="panel-head"><div><span className="eyebrow">Recent activity</span><h3 id="trail-heading">Your learning trail</h3></div><RouteIcon size={21} color="hsl(9 77% 67%)" /></div>{progress.recentActivityIds.length > 0 ? <div className="recent-list">{progress.recentActivityIds.slice(0, 3).map((id) => { const activity = activities.find((item) => item.id === id); return activity ? <div className="recent-item" key={id}><span className={`recent-dot ${activity.color}`}><activity.icon size={15} /></span><div><strong>{activity.title}</strong><span>{activity.domain} · score {activity.bestScore}</span></div><Check size={16} color="hsl(161 43% 33%)" /></div> : null; })}</div> : <div className="empty-mini"><Sprout size={20} /><span>Finish an activity and it will appear here.</span></div>}</section>
       </div>
     </div>
