@@ -1,6 +1,6 @@
-# BrightSprout
+# BrainBuddy
 
-BrightSprout is an offline-first Kids Learning & Brain Development Platform for
+BrainBuddy is an offline-first Kids Learning & Brain Development Platform for
 children aged 6+, combining 23 short missions across mathematics, memory, logic,
 focus, creativity, language, reading, science, design, music, mystery, and
 arcade-style learning with gentle progress rewards.
@@ -25,7 +25,7 @@ arcade-style learning with gentle progress rewards.
 
 ## Where things live
 
-- `artifacts/kids-activity-learning/` — the BrightSprout React/Vite app
+- `artifacts/kids-activity-learning/` — the BrainBuddy React/Vite app
 - `artifacts/kids-activity-learning/src/App.tsx` — activity state, progress, and
   the main application shell
 - `artifacts/kids-activity-learning/src/index.css` — visual system and
@@ -56,6 +56,9 @@ arcade-style learning with gentle progress rewards.
   completion states.
 - Local persistence for completed activities, best scores, streak, settings,
   and weekly practice minutes.
+- V5 progress logic records real calendar-day streaks, resets the weekly goal by local week, and keeps repeat plays as learning sessions without awarding duplicate completion stars.
+- V5 selects a deterministic daily challenge that changes each local day.
+- Product branding is BrainBuddy; the current release targets ages 6–7.
 
 ## User preferences
 
